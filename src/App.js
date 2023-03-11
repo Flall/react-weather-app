@@ -7,14 +7,34 @@ export default function App() {
       <div className="container">
         <Weather />
         <footer>
-          This project was coded by Francesca Lalli and is
+          Coded by{" "}
+          <a
+            href="https://www.linkedin.com/in/francescalalli/"
+            className="footer"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Francesca Lalli
+          </a>
+          , open-sourced on
           <a
             href="https://github.com/Flall/react-weather-app"
             target="_blank"
             rel="noreferrer"
+            className="footer"
           >
             {" "}
-            open-sourced on GitHub
+            GitHub{" "}
+          </a>
+          and hosted on
+          <a
+            href="https://playful-ganache-ddc540.netlify.app"
+            class="footer"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            Netlify
           </a>
         </footer>
       </div>
