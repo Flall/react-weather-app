@@ -29,7 +29,7 @@ export default function App() {
           and hosted on
           <a
             href="https://playful-ganache-ddc540.netlify.app"
-            class="footer"
+            className="footer"
             target="_blank"
             rel="noreferrer"
           >
