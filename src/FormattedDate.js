@@ -18,7 +18,7 @@ export default function FormattedDate(props) {
     "November",
     "December",
   ];
-  let month = months[props.data.getMonth()];
+  let month = months[props.date.getMonth()];
 
   let days = [
     "Sunday",
@@ -40,7 +40,7 @@ export default function FormattedDate(props) {
   }
   return (
     <div>
-      {day} {hours}:{minutes} | ${month} ${currentDate}, ${year}`;
+      {day} {hours}:{minutes} | {month} {currentDate}, {year}
     </div>
   );
 }
