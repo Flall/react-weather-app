@@ -1,3 +1,4 @@
+import React from "react";
 import Weather from "./Weather";
 import "./App.css";
 
@@ -12,7 +13,7 @@ export default function App() {
             href="https://www.linkedin.com/in/francescalalli/"
             className="footer"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Francesca Lalli
           </a>
@@ -20,7 +21,7 @@ export default function App() {
           <a
             href="https://github.com/Flall/react-weather-app"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="footer"
           >
             {" "}
@@ -31,11 +32,11 @@ export default function App() {
             href="https://playful-ganache-ddc540.netlify.app"
             className="footer"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             {" "}
             Netlify
-          </a>
+          </a>{" "}
         </footer>
       </div>
     </div>
