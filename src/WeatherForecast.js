@@ -1,32 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
-import Weather from "./Weather";
+import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
-  function handleResponse(response) {}
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
-  let apiKey = `1c0f6e49a911db65307b85186bd4t6oe`;
-  let lon = props.coordinates.longitude;
-  let lat = props.coordinates.latitude;
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
 
-  axios.get(apiUrl).then(handleResponse);
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col">
-          <div className="WeatherForecast-day">Thu</div>
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-            alt="sunny icon"
-            className="float-left"
-          />
-          <div className="WeatherForecast-temp">
-            <span className="WeatherForecast-temp-max">19°</span> |{" "}
-            <span className="WeatherForecast-temp-min">10°</span>
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          <div className="col">
+            <WeatherForecastDay data={forecast[0]} />
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let lon = props.coordinates.longitude;
+    let lat = props.coordinates.latitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+    let apiKey = `1c0f6e49a911db65307b85186bd4t6oe`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return null;
+  }
 }
